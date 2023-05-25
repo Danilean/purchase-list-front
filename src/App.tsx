@@ -43,36 +43,38 @@ function App() {
   };
 
   return (
-    <div className="p-4 max-w-xl m-auto grid gap-4 bg-black mt-5">
-      <Header />
-      {itemsList.map(({ itemName, quantity }, index) => (
-        <ul className="list-disc px-4">
-          <ItemList
-            removeItem={() => removeItem(index)}
-            itemName={itemName}
-            quantity={quantity}
-          />
-        </ul>
-      ))}
+    <div className="bg-[#333333] min-h-screen ">
+      <div className="p-5 max-w-2xl m-auto gap-4 bg-black">
+        <Header />
+        {itemsList.map(({ itemName, quantity }, index) => (
+          <ul className="list-disc px-4 py-2">
+            <ItemList
+              removeItem={() => removeItem(index)}
+              itemName={itemName}
+              quantity={quantity}
+            />
+          </ul>
+        ))}
 
-      <form onSubmit={submitForm} className="grid gap-2">
-        <Input
-          value={itemData.itemName}
-          label="Nome do item"
-          onChange={(event) =>
-            handleInputChange("itemName", event.target.value)
-          }
-        />
-        <Input
-          value={itemData.quantity}
-          type="number"
-          label="Quantidade"
-          onChange={(event) =>
-            handleInputChange("quantity", event.target.value)
-          }
-        />
-        <Button>Adicionar</Button>
-      </form>
+        <form onSubmit={submitForm} className="grid gap-2">
+          <Input
+            value={itemData.itemName}
+            label="Nome do item"
+            onChange={(event) =>
+              handleInputChange("itemName", event.target.value)
+            }
+          />
+          <Input
+            value={itemData.quantity}
+            type="number"
+            label="Quantidade"
+            onChange={(event) =>
+              handleInputChange("quantity", event.target.value)
+            }
+          />
+          <Button>Adicionar</Button>
+        </form>
+      </div>
     </div>
   );
 }
